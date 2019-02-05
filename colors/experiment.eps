@@ -1,0 +1,86 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 595 842
+%%HiResBoundingBox: 0.000000 0.000000 595.000000 842.000000
+
+%%% define PHI and inch
+%%EndComments
+% EPSF created by ps2eps 1.68
+%%BeginProlog
+save
+countdictstack
+mark
+newpath
+/showpage {} def
+/setpagedevice {pop} def
+%%EndProlog
+%%Page 1 1
+/phi { .5  .5 5 sqrt mul add } def
+/in { 72 mul } def
+%%% define base parallelogram
+%%% a=1 b=phi alpha=120°
+%%% needs parameters currentpoint
+%%% and a rgbcolor
+/parallelogram {
+    1 in 0 rlineto
+    .5 phi mul neg in .5 3 sqrt mul phi mul in rlineto
+    1 neg in 0 in rlineto
+    closepath
+    gsave
+    setrgbcolor
+    fill
+    grestore
+} bind def
+/folding {
+    0 in 0 in moveto
+    %gsave
+    1 215 255 div 0 parallelogram
+    %grestore
+  
+    1 .5 phi mul sub in .5 3 sqrt mul phi mul in translate
+    1 phi div 1 phi div scale
+    60 rotate
+    0 0 moveto
+    gsave
+    1 1  100 255 div  parallelogram
+    grestore
+     %% rotate and scale back
+     %% rmoveto -1 + .5 (1/phi), .5 sqrt 3 (1/phi)
+     %% put original parallelogram on top
+     -60 rotate
+     phi phi scale 
+     -1 .5 1 phi div mul add  in .5 3 sqrt mul 1 phi div mul in moveto
+   %% 1 in 1 in moveto
+   gsave
+     1 215 255 div 0 parallelogram
+   grestore
+  } bind def
+    255 255 div 50 255 div 0 setrgbcolor    
+    clippath fill
+    phi in phi in translate
+    0 3.5 in translate
+    folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+folding
+-120 rotate
+folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+ folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+ folding
+ -120 rotate
+ folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+ folding
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+ folding
+ stroke
+ 
+showpage
+%%Trailer
+cleartomark
+countdictstack
+exch sub { end } repeat
+restore
+%%EOF

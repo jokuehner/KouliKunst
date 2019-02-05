@@ -1,0 +1,102 @@
+%!PS-Adobe-3.0
+
+%%% define PHI and inch
+/phi { .5  .5 5 sqrt mul add } def
+/in { 72 mul } def
+
+%%% define base parallelogram
+%%% a=1 b=phi alpha=120°
+%%% needs currentpoint
+
+/parallelogram {
+    1 in 0 rlineto
+    .5 phi mul neg in .5 3 sqrt mul phi mul in rlineto
+    1 neg in 0 in rlineto
+    closepath
+    gsave
+    setrgbcolor
+    fill
+    grestore
+} bind def
+
+/folding {
+    0 in 0 in moveto
+  %  gsave
+    175 255 div 214 255 div 232 255 div parallelogram
+  %  grestore
+   %%% rmoveto 1 - .5 phi, .5 sqrt 3
+   %%% rotate by 60°
+   %%% scale by 1/phi
+   %%% puts scaled parallelogram on top
+   1 .5 phi mul sub in .5 3 sqrt mul phi mul in translate
+   1 phi div 1 phi div scale
+   60 rotate
+   0 0 moveto
+ %  gsave
+   208 255 div 203 255 div 220 255 div  parallelogram
+ %  grestore
+   %% rotate and scale back
+   %% rmoveto -1 + .5 (1/phi), .5 sqrt 3 (1/phi)
+   %% put original parallelogram on top
+   -60 rotate
+   phi phi scale 
+   -1 .5 1 phi div mul add  in .5 3 sqrt mul 1 phi div mul in moveto
+   %1 in 1 in moveto
+%   gsave
+   175 255 div 214 255 div 232 255 div parallelogram
+%   grestore
+  } bind def
+
+    124 255 div 193 255 div 37 255 div setrgbcolor
+    clippath fill
+    phi in phi in translate
+
+ 
+%  2 in 2 in translate
+    0 3.5 in translate
+    folding
+
+
+%1 .5 1 phi div mul add in .5 3 sqrt mul 1 phi div mul in translate
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+  
+%0 0 moveto
+folding
+
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+%%.5 .5 1 phi div mul add in .5 3 sqrt mul 1 phi div mul in translate
+
+folding
+
+-120 rotate
+
+folding
+
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+ folding
+
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+ folding
+ 
+% stroke
+
+ -120 rotate
+
+ folding
+
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+ folding
+
+ .5 phi mul .5 1 phi div mul add in -.5 3 sqrt mul in translate
+
+ folding
+
+ stroke
+ 
+showpage
+
